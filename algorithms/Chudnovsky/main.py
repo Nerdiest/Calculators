@@ -2,6 +2,7 @@ import math
 from gmpy2 import mpz
 from gmpy2 import isqrt
 from time import time
+from config import limits
 
 
 class Chudnovsky:
@@ -23,6 +24,10 @@ class Chudnovsky:
 
     def compute(self):
         """ Computation """
+
+        if self.digits > limits['chudnovsky']:
+            return str(0)
+
         try:
             tm_s = time()
             p, q, t = self.__bsa(0, self.n)
