@@ -1,12 +1,10 @@
 import math
-import sys
-import traceback
 from gmpy2 import mpz
 from gmpy2 import isqrt
-from time  import time
+from time import time
 
 
-class PiChudnovsky:
+class Chudnovsky:
     A = 13591409
     B = 545140134
     C = 640320
@@ -14,13 +12,12 @@ class PiChudnovsky:
     E = 10005
     C3_24  = C ** 3 // 24
     DIGITS_PER_TERM = math.log(53360 ** 3) / math.log(10)  #=> 14.181647462725476
-    FILENAME = "pi.txt"
 
     def __init__(self, digits):
         """ Initialization
         :param int digits: digits of PI computation
         """
-        self.digits = digits
+        self.digits = digits[0]
         self.n      = math.floor(self.digits / self.DIGITS_PER_TERM + 1)
         self.prec   = math.floor((self.digits + 1) * math.log2(10))
 
@@ -32,7 +29,7 @@ class PiChudnovsky:
             one_sq = mpz(10) ** (2 * self.digits)
             sqrt_c = isqrt(self.E * one_sq)
             pi = (q * self.D * sqrt_c) // t
-            return pi
+            return str(pi)
         except Exception as e:
             raise
 
@@ -62,4 +59,7 @@ class PiChudnovsky:
             return [p_ab, q_ab, t_ab]
         except Exception as e:
             raise
+
+    def get(self):
+        return self.compute()
 
