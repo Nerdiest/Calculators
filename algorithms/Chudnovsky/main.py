@@ -18,7 +18,7 @@ class Chudnovsky:
         """ Initialization
         :param int digits: digits of PI computation
         """
-        self.digits = digits[0]
+        self.digits = int(digits[0])
         self.n      = math.floor(self.digits / self.DIGITS_PER_TERM + 1)
         self.prec   = math.floor((self.digits + 1) * math.log2(10))
 
@@ -34,7 +34,7 @@ class Chudnovsky:
             one_sq = mpz(10) ** (2 * self.digits)
             sqrt_c = isqrt(self.E * one_sq)
             pi = (q * self.D * sqrt_c) // t
-            return str(pi)
+            return "3." + str(pi)[1:]
         except Exception as e:
             raise
 
