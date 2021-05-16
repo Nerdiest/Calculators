@@ -3,7 +3,7 @@ from config import limits
 
 class Fibonacci:
     def __init__(self, n):
-        self.n = n[0]
+        self.n = int(n[0])
 
     def iter(self):
         a = 0
