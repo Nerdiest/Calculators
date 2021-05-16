@@ -11,7 +11,13 @@ def fibonacci(n):
     init = Fibonacci([n])
     return init.get()
 
+@profile
+def largepower(a, b):
+    from algorithms.LargePower.main import LargePower
+    init = LargePower([a,b])
+    return init.get()
 
-print(fibonacci(100000))
+
+print(largepower(34543987529435983745230948023948, 3498573497543987543985743989120393097595572309482304))
 
 
