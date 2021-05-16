@@ -17,7 +17,13 @@ def largepower(a, b):
     init = LargePower([a,b])
     return init.get()
 
+@profile
+def eulerstotient(n):
+    from algorithms.EulersTotient.main import EulersTotient
+    init = EulersTotient([n])
+    return init.get()
 
-print(largepower(34543987529435983745230948023948, 3498573497543987543985743989120393097595572309482304))
+
+print(eulerstotient(13))
 
 
