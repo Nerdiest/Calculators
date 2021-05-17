@@ -1,6 +1,7 @@
 from math import log10
 from gmpy2 import mpz, isqrt
 from config import limits
+from functools import lru_cache
 
 
 class Chudnovsky:
@@ -19,6 +20,7 @@ class Chudnovsky:
         self.digits = int(digits[0])
         self.n = int(self.digits / self.DIGITS_PER_TERM + 1)
 
+    @lru_cache
     def compute(self):
         """ Computation """
 
